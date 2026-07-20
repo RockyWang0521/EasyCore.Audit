@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/demo/">
+    <Project Path="demo/Web.EasyCore.Audit/Web.EasyCore.Audit.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/EasyCore.Audit/EasyCore.Audit.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EasyCore.Audit.Tests/EasyCore.Audit.Tests.csproj" />
+  </Folder>
+</Solution>
