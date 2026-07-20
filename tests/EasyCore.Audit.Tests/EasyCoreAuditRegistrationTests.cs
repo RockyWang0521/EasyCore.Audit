@@ -17,7 +17,7 @@ public sealed class EasyCoreAuditRegistrationTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IHostEnvironment>(new FakeHostEnvironment());
-        services.EasyCoreAudit(o =>
+        services.AddEasyCoreAudit(o =>
         {
             o.Enabled = true;
             o.EnableBatch = false;
@@ -38,7 +38,7 @@ public sealed class EasyCoreAuditRegistrationTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IHostEnvironment>(new FakeHostEnvironment());
-        services.EasyCoreAudit(o =>
+        services.AddEasyCoreAudit(o =>
         {
             o.EnableBatch = false;
             o.UseElasticsearch(es =>
@@ -64,7 +64,7 @@ public sealed class EasyCoreAuditRegistrationTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IHostEnvironment>(new FakeHostEnvironment());
-        services.EasyCoreAudit(o =>
+        services.AddEasyCoreAudit(o =>
         {
             o.EnableBatch = false;
             o.UseDatabase(db =>
@@ -85,7 +85,7 @@ public sealed class EasyCoreAuditRegistrationTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IHostEnvironment>(new FakeHostEnvironment());
-        services.EasyCoreAudit(o =>
+        services.AddEasyCoreAudit(o =>
         {
             o.EnableBatch = false;
             o.UseElasticsearch(es =>

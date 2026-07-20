@@ -55,7 +55,7 @@ public sealed class MinimalApiAuditTests
                 webBuilder.ConfigureServices(services =>
                 {
                     services.AddRouting();
-                    services.EasyCoreAudit(o =>
+                    services.AddEasyCoreAudit(o =>
                     {
                         o.Enabled = true;
                         o.EnableBatch = false;

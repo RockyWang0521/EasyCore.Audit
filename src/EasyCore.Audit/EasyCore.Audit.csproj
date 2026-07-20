@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -18,9 +18,9 @@
     <Description>Automatic HTTP audit logging for ASP.NET Core with pluggable stores (Elasticsearch, file, database, custom).</Description>
     <PackageProjectUrl>https://github.com/RockyWang0521/EasyCore.Audit</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>easycore;audit;logging;elasticsearch;aspnetcore</PackageTags>
-    <Version>8.0.0</Version>
+    <Version>8.3.0</Version>
     <AssemblyVersion>8.0.0.0</AssemblyVersion>
     <FileVersion>8.0.0.0</FileVersion>
     <OutputType>Library</OutputType>
@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyCore.Elasticsearch" Version="8.0.1" />
+    <ProjectReference Include="..\..\..\EasyCore.Elasticsearch\src\EasyCore.Elasticsearch\EasyCore.Elasticsearch.csproj" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.11" />
     <PackageReference Include="MySqlConnector" Version="2.4.0" />

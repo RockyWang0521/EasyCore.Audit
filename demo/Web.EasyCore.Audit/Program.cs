@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.EasyCoreAudit(options =>
+builder.Services.AddEasyCoreAudit(options =>
 {
     options.Enabled = true;
     options.ApplicationName = "Web.EasyCore.Audit";

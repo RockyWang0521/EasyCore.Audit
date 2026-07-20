@@ -104,7 +104,7 @@ public sealed class DatabaseAuditStoreTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddSingleton<IHostEnvironment>(new FakeEnv());
-        services.EasyCoreAudit(o =>
+        services.AddEasyCoreAudit(o =>
         {
             o.EnableBatch = false;
             o.UseDatabase(db =>

@@ -15,7 +15,7 @@ public static class EasyCoreAuditExtensions
     /// <summary>
     /// Adds EasyCore audit logging services.
     /// </summary>
-    public static IServiceCollection EasyCoreAudit(this IServiceCollection services, Action<AuditOptions> configure)
+    public static IServiceCollection AddEasyCoreAudit(this IServiceCollection services, Action<AuditOptions> configure)
     {
         ArgumentNullException.ThrowIfNull(services);
         ArgumentNullException.ThrowIfNull(configure);

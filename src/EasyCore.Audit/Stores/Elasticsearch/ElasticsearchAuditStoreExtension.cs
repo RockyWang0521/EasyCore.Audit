@@ -39,7 +39,7 @@ internal sealed class ElasticsearchAuditStoreExtension : IAuditStoreExtension
         services.TryAddEnumerable(
             ServiceDescriptor.Singleton<IValidateOptions<AuditElasticsearchOptions>, AuditElasticsearchOptionsValidator>());
 
-        services.EasyCoreElasticsearch(es =>
+        services.AddEasyCoreElasticsearch(es =>
         {
             es.Nodes = auditEsOptions.Nodes.ToList();
             es.Username = auditEsOptions.Username;

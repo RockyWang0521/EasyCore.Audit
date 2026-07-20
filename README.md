@@ -1,6 +1,6 @@
 # 📋 EasyCore.Audit
 
-> **EasyCore.Audit** 是面向 .NET 8 的 HTTP 审计日志封装。一次 `EasyCoreAudit` + `UseEasyCoreAudit`，自动记录 MVC / API Controller / Minimal API 请求，支持 **文件 / Elasticsearch / 数据库 / 自定义** 多存储，无需控制器基类或注入 `IAuditService`。
+> **EasyCore.Audit** 是面向 .NET 8 的 HTTP 审计日志封装。一次 `AddEasyCoreAudit` + `UseEasyCoreAudit`，自动记录 MVC / API Controller / Minimal API 请求，支持 **文件 / Elasticsearch / 数据库 / 自定义** 多存储，无需控制器基类或注入 `IAuditService`。
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/RockyWang0521/EasyCore.Audit/master/png/EasyCoreLogo.png" alt="EasyCore Logo" width="120" />
@@ -10,8 +10,8 @@
 ![C#](https://img.shields.io/badge/C%23-12-239120?logo=csharp)
 ![ASP.NET](https://img.shields.io/badge/ASP.NET%20Core-Audit-512BD4)
 ![Stores](https://img.shields.io/badge/Stores-File%20%7C%20ES%20%7C%20DB-0ea5e9)
-![License](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow)
-![Version](https://img.shields.io/badge/Version-8.0.0-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Version](https://img.shields.io/badge/Version-8.3.0-blue)
 
 ---
 
@@ -60,7 +60,7 @@ EasyCore.Audit 解决「在 ASP.NET Core 里自动记审计，而不是每个 Ac
 
 | 原则 | 说明 |
 |---|---|
-| **低摩擦接入** | `EasyCoreAudit` + `UseEasyCoreAudit` 即可 |
+| **低摩擦接入** | `AddEasyCoreAudit` + `UseEasyCoreAudit` 即可 |
 | **零侵入** | 不要求业务基类 |
 | **可插拔存储** | 扩展方法注册多个 `IAuditStore` |
 | **可裁剪字段** | 请求/响应体、异常、批处理均可配 |
@@ -76,7 +76,7 @@ EasyCore.Audit 解决「在 ASP.NET Core 里自动记审计，而不是每个 Ac
 ┌─────────────────────────────────────────────────────────┐
 │  ASP.NET Core Host                                      │
 │                                                         │
-│   EasyCoreAudit(options)  ──► IAuditStore[]             │
+│   AddEasyCoreAudit(options)  ──► IAuditStore[]             │
 │         │                      ├─ File                  │
 │         │                      ├─ Elasticsearch         │
 │         │                      ├─ Database              │
@@ -137,7 +137,7 @@ dotnet add package EasyCore.Audit
 ### 5.1 代码注册
 
 ```csharp
-builder.Services.EasyCoreAudit(options =>
+builder.Services.AddEasyCoreAudit(options =>
 {
     options.Enabled = true;
     options.ApplicationName = "MyApp";
@@ -277,7 +277,7 @@ Demo 默认 **文件存储**，无需 ES / 数据库。
 ## 9. ❓ FAQ
 
 **Q: 为什么必须调 `UseEasyCoreAudit`？**  
-A: 它注册中间件，并为 Minimal API 挂全局 EndpointFilter；只调 `EasyCoreAudit` 不会采集 HTTP。
+A: 它注册中间件，并为 Minimal API 挂全局 EndpointFilter；只调 `AddEasyCoreAudit` 不会采集 HTTP。
 
 **Q: Controller 要不要继承基类？**  
 A: 不要。普通 `[ApiController]` 即可。
@@ -295,8 +295,7 @@ A: 排除路径按 URL；`[IgnoreAudit]` 按 Action / Endpoint 元数据。
 
 ## 10. 📄 License
 
-MIT OR Apache-2.0
-
+MIT
 仓库：[https://github.com/RockyWang0521/EasyCore.Audit](https://github.com/RockyWang0521/EasyCore.Audit)
 
 ### 🤝 贡献

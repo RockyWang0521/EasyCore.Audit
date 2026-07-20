@@ -1,6 +1,6 @@
 # 📋 EasyCore.Audit
 
-> **EasyCore.Audit** is an HTTP audit-logging wrapper for .NET 8. One `EasyCoreAudit` + `UseEasyCoreAudit` captures MVC / API Controllers / Minimal APIs automatically, with pluggable **File / Elasticsearch / Database / Custom** stores — no controller base class and no `IAuditService` injection.
+> **EasyCore.Audit** is an HTTP audit-logging wrapper for .NET 8. One `AddEasyCoreAudit` + `UseEasyCoreAudit` captures MVC / API Controllers / Minimal APIs automatically, with pluggable **File / Elasticsearch / Database / Custom** stores — no controller base class and no `IAuditService` injection.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/RockyWang0521/EasyCore.Audit/master/png/EasyCoreLogo.png" alt="EasyCore Logo" width="120" />
@@ -10,8 +10,8 @@
 ![C#](https://img.shields.io/badge/C%23-12-239120?logo=csharp)
 ![ASP.NET](https://img.shields.io/badge/ASP.NET%20Core-Audit-512BD4)
 ![Stores](https://img.shields.io/badge/Stores-File%20%7C%20ES%20%7C%20DB-0ea5e9)
-![License](https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-yellow)
-![Version](https://img.shields.io/badge/Version-8.0.0-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Version](https://img.shields.io/badge/Version-8.3.0-blue)
 
 ---
 
@@ -60,7 +60,7 @@ EasyCore.Audit solves “audit HTTP traffic automatically instead of hand-writin
 
 | Principle | Meaning |
 |---|---|
-| **Low friction** | `EasyCoreAudit` + `UseEasyCoreAudit` |
+| **Low friction** | `AddEasyCoreAudit` + `UseEasyCoreAudit` |
 | **Zero intrusion** | No business base class |
 | **Pluggable stores** | Register multiple `IAuditStore`s |
 | **Trimable fields** | Bodies / exceptions / batching are optional |
@@ -76,7 +76,7 @@ EasyCore.Audit solves “audit HTTP traffic automatically instead of hand-writin
 ┌─────────────────────────────────────────────────────────┐
 │  ASP.NET Core Host                                      │
 │                                                         │
-│   EasyCoreAudit(options)  ──► IAuditStore[]             │
+│   AddEasyCoreAudit(options)  ──► IAuditStore[]             │
 │         │                      ├─ File                  │
 │         │                      ├─ Elasticsearch         │
 │         │                      ├─ Database              │
@@ -137,7 +137,7 @@ Requires **.NET 8** / ASP.NET Core. Elasticsearch store depends on `EasyCore.Ela
 ### 5.1 Register
 
 ```csharp
-builder.Services.EasyCoreAudit(options =>
+builder.Services.AddEasyCoreAudit(options =>
 {
     options.Enabled = true;
     options.ApplicationName = "MyApp";
@@ -295,8 +295,7 @@ A: Paths match URL prefixes; `[IgnoreAudit]` is endpoint metadata.
 
 ## 10. 📄 License
 
-MIT OR Apache-2.0
-
+MIT
 Repository: [https://github.com/RockyWang0521/EasyCore.Audit](https://github.com/RockyWang0521/EasyCore.Audit)
 
 ### 🤝 Contributing
